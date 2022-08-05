@@ -10,6 +10,8 @@ import requests
 from bs4 import BeautifulSoup
 ```
 
+<br>
+
 ### 一、如何尋找Headers
 ![image](https://user-images.githubusercontent.com/102600962/183034591-9dbd8f4e-b170-4a5d-8dd5-fb726be9a0cb.png)
 ```Python
@@ -19,11 +21,15 @@ res = requests.get(url, headers=headers)
 # 測試結果 回傳[200]成功    
 ```
 
+<br>    
+
 ### 二，使用BeautifulSoup套件解析res裡的html格式
 ```Python
 soup = BeautifulSoup(res.content, 'html.parser')
 soup
 ```
+
+<br>
 
 ### 三、查找網頁裡html的格式所對應到的地方
 ![image](https://user-images.githubusercontent.com/102600962/183037665-3a9ab946-c0fb-49af-b890-96f85e4d3977.png)     
@@ -36,6 +42,8 @@ i = getall[0] # 第一個店面
 i
 ```
 ![image](https://user-images.githubusercontent.com/102600962/183038572-a024ccd6-16ac-4f8b-977d-4decb7d77271.png)
+
+<br>
 
 ### 四、查找html所對應到的名稱
     
@@ -55,7 +63,9 @@ step1 = i.find('ul',{'class':"extra-info mov-df-extra-info"})
 step2 = step1.find('strong')
 print(step2.text)
 ```
-![image](https://user-images.githubusercontent.com/102600962/183040524-524fd839-71b4-487f-abc3-fb8b898bbebe.png)
+![image](https://user-images.githubusercontent.com/102600962/183040524-524fd839-71b4-487f-abc3-fb8b898bbebe.png)     
+
+<br>
 
 ### 五、第一家全部都搜尋到之後，我們以迴圈的方式，讓Python自動把每一家的相關資訊給列出
 
@@ -83,7 +93,9 @@ FoodPanda =  pd.DataFrame({'店家名稱':ShopName,
                            
 ```
 
-##完整程式碼
+<br>
+
+## 完整程式碼
 ```Python
 import pandas as pd
 import requests
